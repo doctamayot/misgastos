@@ -3,10 +3,17 @@ Rails.application.routes.draw do
   root "dashboard#index"
 
   resources :expenses
-  namespace :charts do
+ 
+ namespace :charts do
     get "semester_type"
     get "type"
     get "category"
     get "accumulated"
+  end
+
+  namespace :api do
+    namespace :v1 do
+      resources :expenses
+    end
   end
 end
