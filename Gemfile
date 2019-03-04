@@ -45,19 +45,28 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
   #gem 'sqlite3', '1.3.13'
+  gem 'poltergeist'
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 3.0'
+  gem 'listen'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+ 
+ 
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  
+ 
+  gem 'minitest-reporters'
+  gem 'minitest', '5.10.3'
+  gem 'rails-controller-testing'
 end
 
 group :production do
