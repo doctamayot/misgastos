@@ -1,0 +1,62 @@
+@import "bootstrap-sprockets";
+@import "theme";
+@import "bootstrap";
+@import "dashboard";
+@import "expenses";
+
+.navbar-inverse {
+  border: 0;
+  margin-bottom: 40px;
+}
+
+// add this class to alerts to fix their position
+.alert-growl {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-width: 500px;
+  z-index: 1000;
+}
+
+.callout {
+  position: fixed;
+  top: 15%;
+  right: 5%;
+  margin-left: 20px;
+  max-width: 400px;
+}
+
+.callout_error {
+  /*position: fixed;
+  top: 15%;
+  right: 5%;*/
+  margin: 5px 5px 5px 5px;
+  //max-width: 400px;
+}
+
+.callout-container {
+  padding: 15px;
+  background-color: rgb(222, 237, 217);
+  color: rgb(119, 149, 124);
+  border-radius: 12px;
+}
+
+.callout-container_error {
+  padding: 15px;
+  background-color: rgb(237, 217, 229);
+  color: rgb(149, 119, 135);
+  border-radius: 12px;
+}
+
+.closebtn {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: rgb(59, 109, 71);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.closebtn:hover {
+  color: rgb(196, 255, 219);
+}

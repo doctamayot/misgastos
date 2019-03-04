@@ -1,0 +1,64 @@
+<div id="expense-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title"><%= title %></h4>
+        </div>
+        <div class="callout_error" style="display: none;">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">×</span>
+          <div class="callout-container_error">
+          </div>
+        </div>
+      <%= form_for @expense, remote: true do |f| %>
+        <div class="modal-body">
+          <div class="row">
+            <div class="modalalert" role="alert" style="display: none;">
+              <p></p>
+            </div>
+            <div class="col-xs-6">
+              <div class="control-group">
+                <%= f.label :kind_id, "Kind" %>
+                <div class="form-group">
+                  <%= f.collection_select :kind_id, Kind.all, :id, :name, {}, class: "form-control"%>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-date">
+                <%= f.label :date, "Date" %>
+                <%= f.text_field :date, class: "form-control input", id: "date", placeholder: "Date", :value => f.object.date.blank? ? Date.today : f.object.date %>
+                <p class="help-block"></p>
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="form-concept">
+                <%= f.label :concept, "Concept" %>
+                <%= f.text_field :concept, class: "form-control input", id: "concept", placeholder: "Concept" %>
+                <p class="help-block"></p>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="control-group">
+                <%= f.label :category_id, "Category" %>
+                <div class="form-group">
+                  <%= f.collection_select :category_id, Category.all, :id, :name, {},  class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-amount">
+                <%= f.label :amount, "Amount" %>
+                <%= f.text_field :amount, class: "form-control input", id: "amount", placeholder: "Amount", :value => f.object.amount.blank? ? 0 : f.object.amount %>
+                <p class="help-block"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit class: "btn btn-primary btn " %>
+        </div>
+      <% end %>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="total-box col-md-3">
+      <%=number_to_currency(@expensestoday)%>
+      <span>HOY</span>
+    </div>
+    <div class="total-box col-md-3">
+      <%=number_to_currency(@expensesyesterday)%>
+      <span>AYER</span>
+    </div>
+    <div class="total-box col-md-3">
+     <%=number_to_currency(@expensesthismonth)%>
+      <span>ESTE MES</span>
+    </div>
+    <div class="total-box col-md-3">
+      <%=number_to_currency(@expenseslastmonth)%>
+      <span>MES PASADO</span>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 40px;">
+    <div class="box col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Últimos 6 Meses</div>
+        <div class="panel-body">
+          <div id="expenses-chart" style="height: 250px;"><%= column_chart charts_semester_type_path, prefix: "$" %></div>
+        </div>
+      </div>
+    </div>
+    <div class="box col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Por Día</div>
+        <div class="panel-body">
+          <div id="daily-expenses-chart" style="height: 250px;"><%= bar_chart charts_type_path, prefix: "$" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="margin-top: 10px;">
+    <div class="box col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Por Categoría</div>
+        <div class="panel-body">
+          <div id="category-chart" style="height: 250px;"><%= pie_chart charts_category_path, prefix: "$" %></div>
+        </div>
+      </div>
+    </div>
+    <div class=" box col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">Acumulado vs Mes pasado</div>
+        <div class="panel-body">
+          <div id="month-acc" style="height: 250px;"><%= area_chart charts_accumulated_path, prefix: "$" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

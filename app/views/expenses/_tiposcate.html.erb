@@ -1,0 +1,15 @@
+<div class="col-md-3">
+  <h4 class="filter-header">Transaction Type <span>Choose to filter</span></h4>
+  <div class="list-group filter-type">
+    <%@kind.each do |type|%>
+      <%= link_to type.name, (params[:kind].to_i == type.id ? request.params.merge(kind: "") : request.params.merge(kind: type.id)), class:"list-group-item #{'active' if params[:kind].to_i == type.id}"%>
+    <%end%>
+  </div>
+  
+  <h4 class="filter-header">Category <span>Choose to filter</span></h4>
+  <div class="list-group filter-type">
+  <%@category.each do |cat|%>
+    <%= link_to cat.name, (params[:category].to_i == cat.id ? request.params.merge(category: "") : request.params.merge(category: cat.id)), class:"list-group-item #{'active' if params[:category].to_i == cat.id}"%>
+  <%end%>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<% if @expense.errors.empty? %>
+  $('table tbody tr.<%= @expense.id %>').replaceWith(' <%= j render "body", expense: @expense %>');
+  $('#expense-modal').modal('hide');
+  $('.callout').show();
+  $('.callout p').html("The <%=Kind.find(params[:expense][:kind_id]).name%>: <%=params[:expense][:concept]%> para $<%=params[:expense][:amount]%> de el  <%=params[:expense][:date]%> se modificó exitosamente!");
+  $(function() {
+    setTimeout(function() {
+      $('.callout').hide();
+        }, 6000);
+  });
+<% else %>
+  $('.callout_error').show();
+  $('.callout_error .callout-container_error').append("<%= @expense.errors.full_messages.each { |err| '<p> #{err} </p>' } %>");
+<% end %>

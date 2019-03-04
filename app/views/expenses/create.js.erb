@@ -1,0 +1,15 @@
+<% if @expense.errors.empty? %>
+  $('table tbody').append(' <%= j render "body", expense: @expense %>');
+  $('.callout_error').hide();
+  $('#expense-modal').modal('hide');
+  $('.callout').show();
+  $('.callout p').html("El <%=Kind.find(params[:expense][:kind_id]).name%>: <%=params[:expense][:concept]%> for $<%=params[:expense][:amount]%> de el  <%=params[:expense][:date]%> Se creo exitosamente!");
+    $(function() {
+    setTimeout(function() {
+      $('.callout').hide();
+        }, 5000);
+  });
+<% else %>
+  $('.callout_error').show();
+  $('.callout_error .callout-container_error').append("<%= @expense.errors.full_messages.each { |err| '<p> #{err} </p>' } %>");
+<% end %>
