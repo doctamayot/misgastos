@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 2019_03_04_205601) do
     t.datetime "updated_at", null: false
   end
 
+create_table "kinds", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "expenses", force: :cascade do |t|
     t.date "date"
     t.string "concept"
@@ -30,10 +36,6 @@ ActiveRecord::Schema.define(version: 2019_03_04_205601) do
     t.index ["kind_id"], name: "index_expenses_on_kind_id"
   end
 
-  create_table "kinds", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  
 
 end
