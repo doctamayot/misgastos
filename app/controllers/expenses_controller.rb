@@ -37,6 +37,7 @@ class ExpensesController < ApplicationController
 
   def new
     @expense = Expense.new
+    respond_to :js
   end
   
   def create
