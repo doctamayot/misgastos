@@ -18,10 +18,3 @@
 //= require chartkick
 //= require_tree .
 
-/*$(document).on('keyup', function(e) {
-    console.log("La tecla oprimida fue " + e.which);
-});*/
-
-function ProductsView() {
-    
-  }
